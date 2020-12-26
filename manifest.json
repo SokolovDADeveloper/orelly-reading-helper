@@ -1,0 +1,63 @@
+{
+  "name": "Orelly Reader",
+  "description": "Помогает читать книги на learning.oreilly.com",
+  "version": "0.10",
+  "manifest_version": 2,
+  "author": "SokolovDADeveloper",
+  "browser_action": {
+    "default_icon": {
+      "128": "icons/icon128.png"
+    },
+    "default_title": "Помогает читать книги на learning.oreilly.com"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://learning.oreilly.com/library/view/*.html",
+        "https://learning.oreilly.com/library/view/*.xhtml"
+      ],
+      "js": [
+        "content_scripts/injectCSS.js",
+        "lib/highlight.pack.js",
+        "content_scripts/chapterHandler.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "run_at": "document_end",
+      "matches": [
+        "https://learning.oreilly.com/library/view/*.html",
+        "https://learning.oreilly.com/library/view/*.xhtml"
+      ],
+      "js": [
+        "components/popupNote/popupNote.js"
+      ],
+      "css": [
+        "components/popupNote/popupNote.css"
+      ]
+    },
+    {
+      "run_at": "document_end",
+      "matches": [
+        "https://learning.oreilly.com/library/view/*.html",
+        "https://learning.oreilly.com/library/view/*.xhtml"
+      ],
+      "js": [
+        "content_scripts/changeDefaultUI.js"
+      ]
+    }
+  ],
+  "web_accessible_resources": [
+    "lib/styles/custom_code_style.css"
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "clipboardWrite",
+    "clipboardRead",
+    "tabs"
+  ]
+}

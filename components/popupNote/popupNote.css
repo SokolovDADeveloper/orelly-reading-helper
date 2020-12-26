@@ -1,0 +1,38 @@
+#popupNote {
+    background-color: white;
+    min-height: 90vh;
+    height: 90vh;
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 40px;
+    z-index: 100000;
+}
+
+#popupNote.visible{
+    display: block;
+}
+
+.popupNoteHeader {
+    text-align: center;
+    color: yellow!important;
+    border-bottom: 1px solid red;
+}
+
+.popupNoteCopiedContent {
+    font-size: 12px!important;
+    padding: 3px;
+    overflow: hidden;
+    overflow-y: scroll;
+    border: 1px solid gray;
+    margin: 0px 20px 50px 20px;
+}
+
+.popupNoteButtonsPanel {
+    background-color: white;
+    padding: 10px;
+    border: gray 1px solid;
+    hight: 50px;
+}
